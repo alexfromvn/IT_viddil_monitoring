@@ -1,0 +1,45 @@
+name: Build portable Windows app (unsigned)
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Portable ${{ matrix.rid }}
+    runs-on: windows-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        rid: [win-x64, win-arm64]
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_GENERATE_ASPNET_CERTIFICATE: 'false'
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build and package from source
+        shell: pwsh
+        env:
+          BUILD_RID: ${{ matrix.rid }}
+        run: ./v3/scripts/Build-Portable.ps1 -RuntimeIdentifiers $env:BUILD_RID
+      - name: Upload unsigned portable package
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: IT_viddil_monitoring-3.0.1-${{ matrix.rid }}-unsigned
+          path: |
+            releases/v3.0.1/*${{ matrix.rid }}*portable.zip
+            releases/v3.0.1/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 30
