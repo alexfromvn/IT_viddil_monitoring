@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>assets\IT_viddil_monitoring.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>IT_viddil_monitoring_v3</AssemblyName>
+    <Version>3.0.1</Version>
+    <AssemblyVersion>3.0.1.0</AssemblyVersion>
+    <FileVersion>3.0.1.0</FileVersion>
+    <Product>IT_viddil_monitoring</Product>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Description>Portable Windows resource monitor</Description>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <RuntimeFrameworkVersion>10.0.12</RuntimeFrameworkVersion>
+    <DebugType>embedded</DebugType>
+    <DefaultItemExcludes>$(DefaultItemExcludes);.build/**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\IT_viddil_monitoring.ico" />
+    <Resource Include="assets\fonts\*.ttf" />
+    <Resource Include="assets\fonts\Inter-LICENSE.txt" />
+  </ItemGroup>
+
+</Project>

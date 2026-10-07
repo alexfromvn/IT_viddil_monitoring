@@ -1,0 +1,68 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+    <!-- Original vector artwork. The same drawing is exported into every native ICO size. -->
+    <DrawingImage x:Key="AppIcon" po:Freeze="True">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Brush="Transparent" Geometry="M 0,0 H 512 V 512 H 0 Z"/>
+                <GeometryDrawing Geometry="M 130,12 H 382 C 459,12 500,53 500,130 V 382 C 500,459 459,500 382,500 H 130 C 53,500 12,459 12,382 V 130 C 12,53 53,12 130,12 Z">
+                    <GeometryDrawing.Brush>
+                        <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.85,1">
+                            <GradientStop Color="#50C9FF" Offset="0"/>
+                            <GradientStop Color="#2686F7" Offset="0.48"/>
+                            <GradientStop Color="#6250DD" Offset="1"/>
+                        </LinearGradientBrush>
+                    </GeometryDrawing.Brush>
+                </GeometryDrawing>
+                <DrawingGroup ClipGeometry="M 130,15 H 382 C 457,15 497,55 497,130 V 382 C 497,457 457,497 382,497 H 130 C 55,497 15,457 15,382 V 130 C 15,55 55,15 130,15 Z">
+                    <GeometryDrawing Geometry="M 0,0 H 512 V 110 C 385,225 170,166 0,322 Z">
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0.5,1">
+                                <GradientStop Color="#A0FFFFFF" Offset="0"/>
+                                <GradientStop Color="#04FFFFFF" Offset="1"/>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                    <GeometryDrawing Geometry="M 0,445 C 150,362 343,425 512,305 V 512 H 0 Z">
+                        <GeometryDrawing.Brush>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                <GradientStop Color="#266FE5FF" Offset="0"/>
+                                <GradientStop Color="#006FE5FF" Offset="1"/>
+                            </LinearGradientBrush>
+                        </GeometryDrawing.Brush>
+                    </GeometryDrawing>
+                </DrawingGroup>
+                <GeometryDrawing Geometry="M 130,16 H 382 C 457,16 496,55 496,130 V 382 C 496,457 457,496 382,496 H 130 C 55,496 16,457 16,382 V 130 C 16,55 55,16 130,16 Z">
+                    <GeometryDrawing.Pen>
+                        <Pen Thickness="3">
+                            <Pen.Brush>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0.8,1">
+                                    <GradientStop Color="#B0FFFFFF" Offset="0"/>
+                                    <GradientStop Color="#10FFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Pen.Brush>
+                        </Pen>
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#25FFFFFF">
+                    <GeometryDrawing.Geometry><RectangleGeometry Rect="94,266,72,148" RadiusX="20" RadiusY="20"/></GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#B8FFFFFF">
+                    <GeometryDrawing.Geometry><RectangleGeometry Rect="94,274,72,132" RadiusX="20" RadiusY="20"/></GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#DBFFFFFF">
+                    <GeometryDrawing.Geometry><RectangleGeometry Rect="220,239,72,167" RadiusX="20" RadiusY="20"/></GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#FFFFFFFF">
+                    <GeometryDrawing.Geometry><RectangleGeometry Rect="346,202,72,204" RadiusX="20" RadiusY="20"/></GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Geometry="M 92,164 H 152 L 190,115 L 239,204 L 281,136 L 315,164 H 419">
+                    <GeometryDrawing.Pen>
+                        <Pen Brush="#FFFFFFFF" Thickness="21" StartLineCap="Round" EndLineCap="Round" LineJoin="Round"/>
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+</ResourceDictionary>
