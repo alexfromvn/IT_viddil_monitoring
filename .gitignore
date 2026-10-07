@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/.build/
+.dotnet/
+.appdata/
+.localappdata/
+releases/
+publish/
+*.log
+*.pfx
+*.p12
+*.key
+.env
