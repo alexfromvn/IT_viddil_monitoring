@@ -6,7 +6,7 @@ IT_viddil_monitoring runs locally on Windows. It reads process names, process ID
 
 The application has no analytics, advertising, account system, automatic updater, or application code that sends monitoring data over the network. It does not upload process lists, usage readings, or error logs. It does not install certificates or change Windows security settings.
 
-If an exception occurs, the app may append its time and exception details to `%TEMP%/IT_viddil_monitoring_3.0.1-error.log`. Such details may contain local file paths. This diagnostic file stays on the computer and may be deleted by the user. Users should review and redact any diagnostic file before choosing to share it in a bug report.
+If an exception occurs, the app may append its time and exception details to `%TEMP%/IT_viddil_monitoring_3.0.2-error.log`. Such details may contain local file paths. This diagnostic file stays on the computer and may be deleted by the user. Users should review and redact any diagnostic file before choosing to share it in a bug report.
 
 The self-contained .NET runtime may extract embedded runtime libraries into `%TEMP%/.net` during startup. These files are used to run the app locally.
 

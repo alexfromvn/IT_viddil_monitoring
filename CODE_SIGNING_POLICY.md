@@ -2,7 +2,7 @@
 
 ## Current status
 
-The project is preparing an application to [SignPath Foundation](https://signpath.org/). Approval has not been granted; current builds are **unsigned**. Mentioning the service does not imply endorsement or an issued certificate.
+The project does not have an approved [SignPath Foundation](https://signpath.org/) signing subscription. Current builds are **unsigned**. Any future Foundation signing is subject to approval; mentioning the service does not imply endorsement or an issued certificate.
 
 If accepted, the intended credit is: **Free code signing provided by SignPath.io, certificate by SignPath Foundation.** Signed Windows releases will identify SignPath Foundation as the certificate subject. Each release page will state whether its actual artifacts are signed.
 

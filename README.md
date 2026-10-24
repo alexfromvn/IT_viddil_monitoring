@@ -13,15 +13,18 @@ Maintained by [Oleksii Yevtukhivskyi (@alexfromvn)](https://github.com/alexfromv
 - Processes with the same name grouped into one entry.
 - Ranked horizontal resource charts and separate CPU, memory, and I/O leaders.
 - Search, light/dark themes, original vector icon, and translucent WPF panels.
+- Dark theme is selected on every launch by default; the theme button switches manually.
 - The monitor itself is excluded from rankings, resource leaders, and the process table.
 
 ## Download and run / Завантаження та запуск
 
-Published versions are listed on the [Releases page](https://github.com/alexfromvn/IT_viddil_monitoring/releases). Until the first release is published, the page may be empty. Successful [GitHub Actions builds](https://github.com/alexfromvn/IT_viddil_monitoring/actions/workflows/build.yml) also provide temporary unsigned portable ZIP artifacts.
+The current version is **3.0.2**. Download the portable x64 or ARM64 package from the [Releases page](https://github.com/alexfromvn/IT_viddil_monitoring/releases). Successful [GitHub Actions builds](https://github.com/alexfromvn/IT_viddil_monitoring/actions/workflows/build.yml) also provide temporary unsigned portable ZIP artifacts. See [CHANGELOG.md](CHANGELOG.md).
 
 Для Intel/AMD виберіть `win-x64`; для Windows на Snapdragon/ARM — `win-arm64`. Розпакуйте ZIP і відкрийте `IT_viddil_monitoring_v3.exe`. .NET та шрифти включено до збірки. Основна ціль — Windows 11; запуск ARM64 потребує перевірки на ARM-комп'ютері.
 
-**Signing status: unsigned; preparing an application to SignPath Foundation.** No certificate has been granted and no release is currently signed by the Foundation. If accepted, we intend to use free code signing provided by SignPath.io, with a certificate provided by SignPath Foundation. See the [code signing policy](CODE_SIGNING_POLICY.md). A signature does not guarantee that SmartScreen will never warn.
+У комплекті є **«Запустити програму.cmd»**. Він перевіряє EXE за вбудованою контрольною сумою, знімає мітку завантаження лише з відомої збірки та запускає її. Подвійний клік без параметрів працює у 3.0.2; порожній параметр більше не спричиняє `Unknown option`. Деталі та спосіб розблокування самого CMD — у [короткій інструкції](v3/scripts/Як%20запустити.txt). Скрипт не додає цифровий підпис; корпоративні правила можуть окремо забороняти запуск.
+
+**Signing status: unsigned.** No certificate has been granted and no release is currently signed by SignPath Foundation. Any future Foundation signing is subject to approval. See the [code signing policy](CODE_SIGNING_POLICY.md). A signature does not guarantee that SmartScreen will never warn.
 
 ## Measurement limits
 
@@ -35,7 +38,7 @@ Requires Windows and a stable .NET 10 SDK. The runtime dependency is pinned in t
 
 ```powershell
 dotnet restore v3/IT_viddil_monitoring.csproj -r win-x64 --source https://api.nuget.org/v3/index.json
-dotnet publish v3/IT_viddil_monitoring.csproj -c Release -r win-x64 --self-contained true --no-restore -o releases/v3.0.1/windows-x64
+dotnet publish v3/IT_viddil_monitoring.csproj -c Release -r win-x64 --self-contained true --no-restore -o releases/v3.0.2/windows-x64
 ```
 
 To build portable packages for both architectures where local PowerShell policy permits scripts:
@@ -44,7 +47,7 @@ To build portable packages for both architectures where local PowerShell policy 
 pwsh -NoProfile -File v3/scripts/Build-Portable.ps1
 ```
 
-The GitHub workflow builds from checked-in source on GitHub-hosted Windows runners and uploads unsigned packages. Signing will be configured after approval, using verified build artifacts and manual release approval. Existing private/local versions 1.0, 2.0, and 3.0 remain separate; this repository contains the current 3.0.1 source.
+The GitHub workflow builds from checked-in source on GitHub-hosted Windows runners and uploads unsigned packages, including the verified launcher and instructions. The packaging script adds the newly built executable's hash to its own packaged launcher. Signing would require approval, verified build artifacts, and manual release approval. Older releases remain available; this repository contains the current 3.0.2 source.
 
 ## Dependencies and design
 
