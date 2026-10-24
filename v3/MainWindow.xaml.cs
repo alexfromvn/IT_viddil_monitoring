@@ -16,7 +16,7 @@ public partial class MainWindow : Window
     private bool _sampling;
     private bool _closed;
     private bool _uiReady;
-    private bool _isLight = true;
+    private bool _isLight = false;
     private MonitorSnapshot? _snapshot;
     private List<ProcessGroup> _groups = [];
     private List<ProcessGroup> _visibleGroups = [];

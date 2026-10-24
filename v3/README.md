@@ -1,4 +1,4 @@
-# IT_viddil_monitoring 3.0.1
+# IT_viddil_monitoring 3.0.2
 
 Окрема переносна версія Windows-монітора з дизайном, наближеним до Apple. Версії 1.0 та 2.0 збережено без змін.
 
@@ -10,7 +10,7 @@
 
 У 3.0.1 іконку в шапці та вікні замінено на векторний рисунок з `Icon.xaml`: округла синьо-фіолетова плитка, скляний блиск і білий графік. Іконка EXE має кадри 16, 20, 24, 32, 40, 48, 64, 96, 128 та 256 px. Прев’ю 512 px — `assets/icon-preview.png`.
 
-- Світла тема за замовчуванням, окрема темна тема.
+- Темна тема за замовчуванням при кожному запуску; кнопка «Світла тема» перемикає оформлення вручну.
 - Напівпрозорі плаваючі панелі з розмиттям власного фону, м’якою тінню та світлими краями.
 - Плавні кольорові форми фону, власноруч намальовані у WPF.
 - Великі цифри та шрифти Inter / Inter Display із трьома вагами й підтримкою української.
@@ -42,7 +42,7 @@ Windows може обмежувати доступ до захищених пр�
 
 ```powershell
 dotnet restore IT_viddil_monitoring.csproj -r win-x64 --source https://api.nuget.org/v3/index.json
-dotnet publish IT_viddil_monitoring.csproj -c Release -r win-x64 --self-contained true --no-restore -o ../releases/v3.0.1/windows-x64
+dotnet publish IT_viddil_monitoring.csproj -c Release -r win-x64 --self-contained true --no-restore -o ../releases/v3.0.2/windows-x64
 ```
 
 Або запустіть `scripts/Build-Portable.ps1`, якщо політика PowerShell вашого комп’ютера дозволяє сценарії. Скрипт створює обидві архітектури, архіви, ліцензію Inter та контрольні суми. Він не змінює захист Windows або старі випуски.

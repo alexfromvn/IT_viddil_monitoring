@@ -1,4 +1,4 @@
-# IT_viddil_monitoring 3.0.1 — переносна версія
+# IT_viddil_monitoring 3.0.2 — переносна версія
 
 ## Запуск на іншому комп’ютері
 
@@ -8,8 +8,8 @@
 
 | Комп’ютер | Архів | Папка з EXE |
 | --- | --- | --- |
-| 64-бітний процесор Intel або AMD | `IT_viddil_monitoring_v3.0.1_win-x64_portable.zip` | `windows-x64` |
-| Windows на ARM, наприклад Snapdragon | `IT_viddil_monitoring_v3.0.1_win-arm64_portable.zip` | `windows-arm64` |
+| 64-бітний процесор Intel або AMD | `IT_viddil_monitoring_v3.0.2_win-x64_portable.zip` | `windows-x64` |
+| Windows на ARM, наприклад Snapdragon | `IT_viddil_monitoring_v3.0.2_win-arm64_portable.zip` | `windows-arm64` |
 
 Основна ціль — актуальна Windows 11; Windows 10 потребує окремої перевірки на конкретному ПК. На дату збірки офіційна підтримка .NET 10 на Windows 10 обмежена підтримуваними LTSC/Enterprise випусками. Windows 7/8.1 та 32-бітна Windows не підтримуються цими архівами. Архітектуру EXE не можна довільно змінити перейменуванням файлу. [Підтримка Windows у .NET](https://learn.microsoft.com/en-us/dotnet/core/install/windows), [архітектури переносних збірок](https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview).
 
@@ -45,13 +45,13 @@ Get-FileHash -LiteralPath '.\IT_viddil_monitoring_v3.exe' -Algorithm SHA256
 powershell -NoProfile -File .\scripts\Build-Portable.ps1
 ```
 
-Скрипт послідовно створює самодостатні стиснені single-file збірки для x64 та ARM64, ZIP і SHA256 у `releases/v3.0.1`. Він не змінює випуск 1.0. Для однієї архітектури використайте `-RuntimeIdentifiers win-x64` або `-RuntimeIdentifiers win-arm64`.
+Скрипт послідовно створює самодостатні стиснені single-file збірки для x64 та ARM64, ZIP і SHA256 у `releases/v3.0.2`. Він не змінює випуск 1.0. Для однієї архітектури використайте `-RuntimeIdentifiers win-x64` або `-RuntimeIdentifiers win-arm64`.
 
 Якщо політика комп’ютера забороняє запуск сценаріїв PowerShell, можна виконати команди компілятора без зміни цієї політики (із папки `v3`):
 
 ```powershell
 dotnet restore IT_viddil_monitoring.csproj -r win-x64 --source https://api.nuget.org/v3/index.json
-dotnet publish IT_viddil_monitoring.csproj -c Release -r win-x64 --self-contained true --no-restore -o ../releases/v3.0.1/windows-x64
+dotnet publish IT_viddil_monitoring.csproj -c Release -r win-x64 --self-contained true --no-restore -o ../releases/v3.0.2/windows-x64
 ```
 
 Для ARM64 замініть `win-x64` на `win-arm64` і папку призначення на `windows-arm64`. Параметри самодостатньої збірки та версію runtime задано в проєкті.

@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:IT_viddil_monitoring"
-        Title="IT_viddil_monitoring · 3.0.1" Icon="{DynamicResource AppIcon}"
+        Title="IT_viddil_monitoring · 3.0.2" Icon="{DynamicResource AppIcon}"
         Width="1400" Height="940" MinWidth="820" MinHeight="650" WindowStartupLocation="CenterScreen"
         Background="{DynamicResource WindowBrush}" Foreground="{DynamicResource TextBrush}"
         FontFamily="{DynamicResource TextFont}" UseLayoutRounding="True"
@@ -35,12 +35,12 @@
                         <StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="IT_viddil_monitoring" FontFamily="{StaticResource DisplayFont}" FontSize="25" FontWeight="SemiBold"/>
-                                <Border Background="{DynamicResource BadgeBrush}" CornerRadius="10" Padding="9,4" Margin="12,0,0,0" VerticalAlignment="Center"><TextBlock Text="3.0.1" FontSize="11" Foreground="{DynamicResource AccentBrush}" FontWeight="SemiBold"/></Border>
+                                <Border Background="{DynamicResource BadgeBrush}" CornerRadius="10" Padding="9,4" Margin="12,0,0,0" VerticalAlignment="Center"><TextBlock Text="3.0.2" FontSize="11" Foreground="{DynamicResource AccentBrush}" FontWeight="SemiBold"/></Border>
                             </StackPanel>
                             <TextBlock Text="Що сповільнює ваш комп’ютер" Style="{StaticResource Label}" Margin="0,4,0,0"/>
                         </StackPanel>
                     </StackPanel>
-                    <Button x:Name="ThemeButton" Grid.Column="1" Click="Theme_Click" Content="Темна тема" VerticalAlignment="Center" AutomationProperties.Name="Змінити тему" ToolTip="Перемкнути світлу або темну тему"/>
+                    <Button x:Name="ThemeButton" Grid.Column="1" Click="Theme_Click" Content="Світла тема" VerticalAlignment="Center" AutomationProperties.Name="Змінити тему" ToolTip="Перемкнути світлу або темну тему"/>
                 </Grid>
                 <local:GlassPanel x:Name="LeaderGlass" BackdropSource="{Binding ElementName=AmbientBackground}" BackdropOpacity="{DynamicResource GlassBackdropOpacity}" Margin="0,0,0,16" Padding="24,20" CornerRadius="30">
                     <Grid>
