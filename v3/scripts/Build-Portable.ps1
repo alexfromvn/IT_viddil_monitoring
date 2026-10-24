@@ -6,7 +6,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$version = '3.0.1'
+$version = '3.0.2'
 # Verified against official .NET release metadata and NuGet on 2026-10-07.
 $runtimeVersion = '10.0.12'
 $sourceRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
@@ -91,6 +91,18 @@ try {
                 Copy-Item -LiteralPath $runtimeNotice.Source -Destination (Join-Path $outputPath $runtimeNotice.Name) -Force
             }
             $exeHash = (Get-FileHash -LiteralPath $executable.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
+            # Each freshly built EXE gets its own hash in the packaged launcher.
+            # GitHub-hosted builds need not have the same bytes as local builds.
+            $launcherText = [IO.File]::ReadAllText((Join-Path $sourceRoot 'scripts\Запустити програму.cmd'))
+            $knownMatch = [regex]::Match($launcherText, '(\$known\s*=\s*@\()([^)]*)(\))')
+            if (-not $knownMatch.Success) { throw 'Known release hashes are missing from the launcher.' }
+            $knownValues = $knownMatch.Groups[2].Value
+            if (-not $knownValues.Contains("'$exeHash'")) { $knownValues += ",'$exeHash'" }
+            $newKnown = '$known = @(' + $knownValues + ')'
+            $launcherText = $launcherText.Remove($knownMatch.Index, $knownMatch.Length).Insert($knownMatch.Index, $newKnown)
+            [IO.File]::WriteAllText((Join-Path $outputPath 'Запустити програму.cmd'),
+                ($launcherText -replace '\r?\n', "`r`n"), [Text.Encoding]::ASCII)
+            Copy-Item -LiteralPath (Join-Path $sourceRoot 'scripts\Як запустити.txt') -Destination $outputPath -Force
             Set-Content -LiteralPath (Join-Path $outputPath 'SHA256SUMS.txt') -Value "$exeHash  $($executable.Name)" -Encoding UTF8
 
             $zipPath = Join-Path $releaseRoot "IT_viddil_monitoring_v$version`_$rid`_portable.zip"
@@ -99,7 +111,9 @@ try {
                 (Join-Path $outputPath 'README.md'),
                 (Join-Path $outputPath 'DISTRIBUTION.md'),
                 (Join-Path $outputPath 'Inter-LICENSE.txt'),
-                (Join-Path $outputPath 'SHA256SUMS.txt')
+                (Join-Path $outputPath 'SHA256SUMS.txt'),
+                (Join-Path $outputPath 'Запустити програму.cmd'),
+                (Join-Path $outputPath 'Як запустити.txt')
             )
             $archiveFiles += $noticeNames | ForEach-Object { Join-Path $outputPath $_ }
             $archiveFiles += $runtimeNotices | ForEach-Object { Join-Path $outputPath $_.Name }
