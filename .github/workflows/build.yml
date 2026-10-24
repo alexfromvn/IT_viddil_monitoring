@@ -37,9 +37,9 @@ jobs:
       - name: Upload unsigned portable package
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
-          name: IT_viddil_monitoring-3.0.1-${{ matrix.rid }}-unsigned
+          name: IT_viddil_monitoring-3.0.2-${{ matrix.rid }}-unsigned
           path: |
-            releases/v3.0.1/*${{ matrix.rid }}*portable.zip
-            releases/v3.0.1/SHA256SUMS.txt
+            releases/v3.0.2/*${{ matrix.rid }}*portable.zip
+            releases/v3.0.2/SHA256SUMS.txt
           if-no-files-found: error
           retention-days: 30
